@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         val edtDistancia = findViewById<EditText>(R.id.edtDistancia)
         val edtKmLitro = findViewById<EditText>(R.id.edtKmLitro)
-        val edtPrecoLitro = findViewById<EditText>(R.id.edtPrecoLitro)
+        val edtPrecoCombustivel = findViewById<EditText>(R.id.edtPrecoCombustivel)
 
         val txtResultado = findViewById<TextView>(R.id.txtResultado)
 
@@ -32,20 +32,11 @@ class MainActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
             val distancia = edtDistancia.text.toString().toInt()
             val kmLitro = edtKmLitro.text.toString().toInt()
-            val precoLitro = edtPrecoLitro.text.toString().toDouble()
+            val precoCombustivel = edtPrecoCombustivel.text.toString().toDouble()
 
             val litrosNecessarios = distancia / kmLitro
 
-            val custoTotal = litrosNecessarios * precoLitro
-
-            //MOSTRANDO RESULTADO FINAL NO TEXTVIEW
-            txtResultado.text = "Custo Total = $custoTotal"
-
-            println("Distância: $distancia")
-            println("Consumo: $kmLitro")
-            println("Preço por Litro: $precoLitro")
-
-            println("Custo Total: $custoTotal")
+            val custoTotal = litrosNecessarios * precoCombustivel
         }
     }
 }
