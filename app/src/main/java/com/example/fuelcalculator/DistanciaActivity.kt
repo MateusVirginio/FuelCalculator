@@ -1,6 +1,9 @@
 package com.example.fuelcalculator
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +18,19 @@ class DistanciaActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        //FindViewById
+        val edtDistancia = findViewById<EditText>(R.id.edtDistancia)
+        val btnDistancaProximo = findViewById<Button>(R.id.btnDistancia)
+
+        //NavegarProximaTela
+
+        btnDistancaProximo.setOnClickListener {
+            val edtDistanciaValor = edtDistancia.text.toString().toInt()
+            val intent = Intent(this, KmLitroActivity::class.java)
+            intent.putExtra("DISTANCIA",edtDistanciaValor)
+            startActivity(intent)
         }
     }
 }
