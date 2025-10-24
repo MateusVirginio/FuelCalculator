@@ -24,11 +24,11 @@ class DistanciaActivity : AppCompatActivity() {
         val edtDistancia = findViewById<EditText>(R.id.edtDistancia)
         val btnDistancaProximo = findViewById<Button>(R.id.btnDistancia)
 
-        //NavegarProximaTela
-
+        //Navegar para proxima tela
         btnDistancaProximo.setOnClickListener {
             val edtDistanciaValor = edtDistancia.text.toString().toInt()
             val intent = Intent(this, KmLitroActivity::class.java)
+            //Passar valor digitado pelo usuario
             intent.putExtra("DISTANCIA",edtDistanciaValor)
             startActivity(intent)
         }
