@@ -29,7 +29,8 @@ class KmLitroActivity : AppCompatActivity() {
         btnKmLitroProximo.setOnClickListener {
             val kmLitroValor = edtKmLitro.text.toString().toInt()
             val intent = Intent(this, PrecoCombustivelActivity::class.java)
-            intent.putExtra("LITROS_NECESSARIOS", distancia/kmLitroValor)
+            intent.putExtra("DISTANCIA", distancia)
+            intent.putExtra("CONSUMO",kmLitroValor)
             startActivity(intent)
         }
     }

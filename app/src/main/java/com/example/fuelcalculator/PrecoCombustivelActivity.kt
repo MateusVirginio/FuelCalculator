@@ -20,7 +20,8 @@ class PrecoCombustivelActivity : AppCompatActivity() {
             insets
         }
         //Recuperar dados tela anterior
-        val litrosNecessarios = intent.getIntExtra("LITROS_NECESSARIOS", 0)
+        val distancia = intent.getIntExtra("DISTANCIA", 0)
+        val consumo = intent.getIntExtra("CONSUMO", 0)
 
         //FindViewById
         val edtPrecoCombustivel = findViewById<EditText>(R.id.edtPrecoCombustivel)
@@ -29,10 +30,14 @@ class PrecoCombustivelActivity : AppCompatActivity() {
         btnPrecoCombustivelCalcular.setOnClickListener {
             val precoCombustivel = edtPrecoCombustivel.text.toString().toDouble()
 
+            val litrosNecessarios = distancia/consumo
             val custoTotal = litrosNecessarios * precoCombustivel
 
             val intent = Intent(this, ResultadoActivity::class.java)
             intent.putExtra("CUSTO_TOTAL",custoTotal)
+            intent.putExtra("PRECO_COMBUSTIVEL",precoCombustivel)
+            intent.putExtra("DISTANCIA",distancia)
+            intent.putExtra("CONSUMO",consumo)
             startActivity(intent)
         }
     }
