@@ -2,12 +2,14 @@ package com.example.fuelcalculator
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.MaterialToolbar
 
 class DistanciaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,13 @@ class DistanciaActivity : AppCompatActivity() {
         //FindViewById
         val edtDistancia = findViewById<EditText>(R.id.edtDistancia)
         val btnDistancaProximo = findViewById<Button>(R.id.btnDistancia)
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_distancia)
+        //Habilitar toolbar
+        setSupportActionBar(toolbar)
+
+        //Botões de Voltar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         //Navegar para proxima tela
         btnDistancaProximo.setOnClickListener {
@@ -31,6 +40,18 @@ class DistanciaActivity : AppCompatActivity() {
             //Passar valor digitado pelo usuario
             intent.putExtra("DISTANCIA",edtDistanciaValor)
             startActivity(intent)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 }

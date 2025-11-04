@@ -2,12 +2,14 @@ package com.example.fuelcalculator
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.MaterialToolbar
 
 class PrecoCombustivelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,14 @@ class PrecoCombustivelActivity : AppCompatActivity() {
         //FindViewById
         val edtPrecoCombustivel = findViewById<EditText>(R.id.edtPrecoCombustivel)
         val btnPrecoCombustivelCalcular = findViewById<Button>(R.id.btnPrecoCombustivel)
+        val toolbar = findViewById<MaterialToolbar>(R.id.toolbar_preco_combustivel)
+        //Habilita o toolbar
+        setSupportActionBar(toolbar)
+
+        //Botões de Voltar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
 
         btnPrecoCombustivelCalcular.setOnClickListener {
             val precoCombustivel = edtPrecoCombustivel.text.toString().toDouble()
@@ -39,6 +49,19 @@ class PrecoCombustivelActivity : AppCompatActivity() {
             intent.putExtra("DISTANCIA",distancia)
             intent.putExtra("CONSUMO",consumo)
             startActivity(intent)
+        }
+    }
+
+    // Faz voltar a activity quando o botão de voltar for clicado
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 }
