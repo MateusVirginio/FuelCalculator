@@ -2,10 +2,13 @@
 
 Este projeto é um aplicativo Android simples desenvolvido como parte do curso de Android com Kotlin da [Escola Nova Era](https://www.escolanovaeratech.com.br/android).
 
-![main](./screenshots/main.png)
-![distancia](./screenshots/distancia.png)
-![autonomia](./screenshots/autonomia.png)
-![resultado](./screenshots/resultado.png)
+<p align="center">
+  <img src="./screenshots/main.png" alt="Tela Inicial" width="200"/>
+  <img src="./screenshots/distancia.png" alt="Tela de Distância" width="200"/>
+  <img src="./screenshots/autonomia.png" alt="Tela de Autonomia" width="200"/>
+  <img src="./screenshots/resultado.png" alt="Tela de Resultado" width="200"/>
+</p>
+
 ## 📝 Descrição
 
 O FuelCalculator é um aplicativo móvel que permite aos usuários calcular o custo total de combustível para uma viagem. O aplicativo funciona em um fluxo de múltiplas telas, coletando dados do usuário passo a passo para fornecer um cálculo preciso e um resumo final.
